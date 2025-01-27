@@ -2,6 +2,7 @@ package com.muse.keepup.user.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,6 +12,7 @@ import java.security.Principal;
 import java.util.Collection;
 
 @Data
+@Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Entity()
@@ -21,13 +23,14 @@ public class User implements  UserDetails, Principal {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     @Column(unique = true)
     private String email;
     private String firstname;
     private String lastname;
     private String username;
     private String password;
-    private Boolean isEnabled;
+    private boolean isEnabled;
 
 
     @Override

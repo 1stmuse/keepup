@@ -16,3 +16,9 @@ spring:
     properties:
       format_sql: true
     database: postgresql
+
+application:
+  security:
+    jwt:
+      secret-key: sfrvdvrgrvdvdv
+      expiration: 8640000
